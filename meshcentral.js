@@ -94,6 +94,18 @@ function CreateMeshCentralServer(config, args) {
         if (obj.fs.existsSync(obj.path.join(__dirname, '../../meshcentral-web/views'))) { obj.webViewsOverridePath = obj.path.join(__dirname, '../../meshcentral-web/views'); }
         if (obj.fs.existsSync(obj.path.join(__dirname, '../../meshcentral-web/public'))) { obj.webPublicOverridePath = obj.path.join(__dirname, '../../meshcentral-web/public'); }
         if (obj.fs.existsSync(obj.path.join(__dirname, '../../meshcentral-web/emails'))) { obj.webEmailsOverridePath = obj.path.join(__dirname, '../../meshcentral-web/emails'); }
+    } else if ((/\/node_modules\/@(?=.*\/meshcentral)/.test(path)) || (/\\node_modules\\@(?=.*\\meshcentral)/.test(path)) || (/\/node_modules\/@(?=.*\/meshcentral\/)/.test(path)) || (/\\node_modules\\@(?=.*\\meshcentral\\)/.test(path))) {
+        obj.parentpath = obj.path.join(__dirname, '../../..');
+        obj.datapath = obj.path.join(__dirname, '../../../meshcentral-data');
+        obj.filespath = obj.path.join(__dirname, '../../../meshcentral-files');
+        obj.backuppath = obj.path.join(__dirname, '../../../meshcentral-backups');
+        obj.recordpath = obj.path.join(__dirname, '../../../meshcentral-recordings');
+        obj.webViewsPath = obj.path.join(__dirname, 'views');
+        obj.webPublicPath = obj.path.join(__dirname, 'public');
+        obj.webEmailsPath = obj.path.join(__dirname, 'emails');
+        if (obj.fs.existsSync(obj.path.join(__dirname, '../../../meshcentral-web/views'))) { obj.webViewsOverridePath = obj.path.join(__dirname, '../../../meshcentral-web/views'); }
+        if (obj.fs.existsSync(obj.path.join(__dirname, '../../../meshcentral-web/public'))) { obj.webPublicOverridePath = obj.path.join(__dirname, '../../../meshcentral-web/public'); }
+        if (obj.fs.existsSync(obj.path.join(__dirname, '../../../meshcentral-web/emails'))) { obj.webEmailsOverridePath = obj.path.join(__dirname, '../../../meshcentral-web/emails'); }
     } else {
         obj.parentpath = __dirname;
         obj.datapath = obj.path.join(__dirname, '../meshcentral-data');
