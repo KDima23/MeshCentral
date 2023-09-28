@@ -94,7 +94,7 @@ function CreateMeshCentralServer(config, args) {
         if (obj.fs.existsSync(obj.path.join(__dirname, '../../meshcentral-web/views'))) { obj.webViewsOverridePath = obj.path.join(__dirname, '../../meshcentral-web/views'); }
         if (obj.fs.existsSync(obj.path.join(__dirname, '../../meshcentral-web/public'))) { obj.webPublicOverridePath = obj.path.join(__dirname, '../../meshcentral-web/public'); }
         if (obj.fs.existsSync(obj.path.join(__dirname, '../../meshcentral-web/emails'))) { obj.webEmailsOverridePath = obj.path.join(__dirname, '../../meshcentral-web/emails'); }
-    } else if ((/\/node_modules\/@(?=.*\/meshcentral)/.test(path)) || (/\\node_modules\\@(?=.*\\meshcentral)/.test(path)) || (/\/node_modules\/@(?=.*\/meshcentral\/)/.test(path)) || (/\\node_modules\\@(?=.*\\meshcentral\\)/.test(path))) {
+    } else if ((/\/node_modules\/@(?=.*\/meshcentral)/.test(__dirname)) || (/\\node_modules\\@(?=.*\\meshcentral)/.test(__dirname)) || (/\/node_modules\/@(?=.*\/meshcentral\/)/.test(__dirname)) || (/\\node_modules\\@(?=.*\\meshcentral\\)/.test(__dirname))) {
         obj.parentpath = obj.path.join(__dirname, '../../..');
         obj.datapath = obj.path.join(__dirname, '../../../meshcentral-data');
         obj.filespath = obj.path.join(__dirname, '../../../meshcentral-files');
